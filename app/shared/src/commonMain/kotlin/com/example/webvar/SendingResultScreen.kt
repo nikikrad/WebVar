@@ -55,7 +55,7 @@ fun SendingResultScreen(
         Card(
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(0.7f), // Ширина карточки 70% от ширины экрана
+                .fillMaxWidth(0.9f), // На телефонах лучше занять 90% экрана
             shape = RoundedCornerShape(24.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
             colors = CardDefaults.cardColors(containerColor = cardBackground)

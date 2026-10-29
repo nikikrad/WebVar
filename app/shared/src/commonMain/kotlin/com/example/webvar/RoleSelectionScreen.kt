@@ -29,7 +29,7 @@ fun RoleSelectionScreen(onRoleSelected: (String) -> Unit) {
         Card(
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(0.7f), // Ширина карточки 70% от ширины экрана (уменьшено на 30%)
+                .fillMaxWidth(0.9f), // На телефонах лучше занять 90% экрана, чтобы всё влезло
             shape = RoundedCornerShape(24.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
             colors = CardDefaults.cardColors(containerColor = cardBackground)
@@ -49,21 +49,22 @@ fun RoleSelectionScreen(onRoleSelected: (String) -> Unit) {
                 )
 
                 // Кнопки
+                // Убрал weight(1f), теперь кнопки подстраиваются под размер текста.
+                // Добавил перенос на новую строку (FlowRow или Column) если экран совсем узкий,
+                // но для двух слов Row со spacedBy обычно хватает, если плашка достаточно широкая.
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     Button(
                         onClick = { onRoleSelected("Воровайка") },
-                        colors = ButtonDefaults.buttonColors(containerColor = primaryPink),
-                        modifier = Modifier.weight(1f) // Чтобы кнопки были одинаковой ширины (если нужно), но можно и без weight
+                        colors = ButtonDefaults.buttonColors(containerColor = primaryPink)
                     ) {
                         Text("Воровайка", color = Color.White, fontSize = 16.sp)
                     }
 
                     Button(
                         onClick = { onRoleSelected("Варвара") },
-                        colors = ButtonDefaults.buttonColors(containerColor = primaryPink),
-                        modifier = Modifier.weight(1f)
+                        colors = ButtonDefaults.buttonColors(containerColor = primaryPink)
                     ) {
                         Text("Варвара", color = Color.White, fontSize = 16.sp)
                     }

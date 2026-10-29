@@ -30,7 +30,7 @@ fun ThirdQuestionScreen(onConfirmed: (String) -> Unit) {
         Card(
             modifier = Modifier
                 .padding(16.dp)
-                .fillMaxWidth(0.7f), // Ширина карточки 70% от ширины экрана
+                .fillMaxWidth(0.95f), // Поле для ввода текста, на телефоне лучше занять почти весь экран
             shape = RoundedCornerShape(24.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
             colors = CardDefaults.cardColors(containerColor = cardBackground)
