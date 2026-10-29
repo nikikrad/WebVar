@@ -25,7 +25,7 @@ fun SendingResultScreen(
     val primaryPink = Color(0xFFE91E63)
     val cardBackground = Color(0xFFFFFFFF)
 
-    var statusMessage by remember { mutableStateOf("Отправляем результаты Варваре...") }
+    var statusMessage by remember { mutableStateOf("Отправляем результаты Никитке...") }
     var isSuccess by remember { mutableStateOf<Boolean?>(null) }
 
     // Запускаем отправку один раз при показе экрана
@@ -77,7 +77,8 @@ fun SendingResultScreen(
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Medium,
                     color = if (isSuccess == false) Color.Red else primaryPink,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center, // Выравнивание текста внутри компонента Text по центру
+                    modifier = Modifier.fillMaxWidth() // Занимаем всю ширину, чтобы textAlign сработал корректно
                 )
             }
         }
