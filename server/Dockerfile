@@ -1,6 +1,6 @@
 # Используем официальный образ с Java и Gradle для сборки
 # Меняем версию на 8.10, так как Android-плагинам нужен более новый Gradle
-FROM gradle:8.10-jdk17 AS build
+FROM gradle:8.10-jdk21 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 # Используем gradlew (Wrapper), который уже есть в вашем проекте. Он скачает именно ту версию Gradle,
@@ -8,8 +8,8 @@ WORKDIR /home/gradle/src
 RUN chmod +x ./gradlew
 RUN ./gradlew :server:buildFatJar --no-daemon
 
-# Используем легковесный образ с Java 17 для запуска сервера
-FROM eclipse-temurin:17-jre-alpine
+# Используем легковесный образ с Java 21 для запуска сервера
+FROM eclipse-temurin:21-jre-alpine
 # Создаем директорию для приложения
 RUN mkdir /app
 # Копируем собранный JAR файл из этапа сборки
